@@ -1,49 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import axios from "axios";
 import SearchBox from './SearchBox';
 import BookList from './BookList';
+import Title from './Title';
+import Box from '@material-ui/core/Box';
 
-
+const apiKey = "AIzaSyD_BNLanxv7-PMUbA6ssyYyfaanJLA0JjI";
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      pictures: [],
-      isAuthenticated: false, 
-      user: null, 
-      token: ''
+      books: [],
+      searchField: "placeholder"
     }
+  }
+
+  handleSearchClick = () => {
+    //fetch request will be sent when the search button is clicked
+    console.log("search field was " + this.state.searchField)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchField}&key=${apiKey}`)
+      .then(response => response.json())
+      .then(result => {
+        this.setState({books: result.items})
+      });
   }
   
   componentDidMount() {
     
-    fetch("https://www.googleapis.com/books/v1/volumes?q=search-terms&key=AIzaSyD_BNLanxv7-PMUbA6ssyYyfaanJLA0JjI")
-    .then(response => response.json())
-    .then(result => {
-      console.log(result)
-      this.setState({books: result.items})
-    });
+    // Initial fetch request to fill up the placeholder book list.
+    if (this.state.searchField === "placeholder") {
+      // run a default books search
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=${apiKey}`)
+      .then(response => response.json())
+      .then(result => {
+        this.setState({books: result.items})
+      });
+    } 
+    
     
   }
-//   fetch(`https://www.googleapis.com/books/v1/volumes?q=search-terms&key=your-API-key)
-//   .then(response => response.json())
-//   .then(result => {
-// this.setState({ books: result.items})
-// })}
   render() {
-
+    
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <SearchBox placeholder="Enter country name..." handleChange={(e) => this.setState({searchField: e.target.value})} />
-          <BookList/>
-        </header>
+        <div className="container">
+          <Box>
+            <Title/>
+            <SearchBox handleSearchClick={this.handleSearchClick} placeholder="Search books..." handleChange={(e) => this.setState({searchField: e.target.value})} />
+            <BookList data={this.state.books} />
+          </Box>
+        </div>
       </div>
     );
 

@@ -1,10 +1,19 @@
+html {
+  min-height: 100%;
+  background-color: #fce5cd30;
+}
+
+body {
+  min-height: 100vh;
+}
 .App {
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
 }
 .container {
   padding-top: 5%;
-  background-color: #fce5cd30;
+  
 }
 .MuiInput-root {
   margin-right: 16px;
@@ -16,10 +25,10 @@
   padding-top: 4%;
 }
 .list-container .wrapper {
-  margin: 40px 10%;
+  margin: 40px 14%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem 2rem;
+  gap: 5rem 4rem;
 }
 .card-container {
   display: grid;
@@ -30,7 +39,7 @@
 .card-container .title-box {
   grid-row: 1;
   grid-column: 2/2;
-  padding: 1rem;
+  padding: 1rem 2rem;
   text-align: left;
 }
 .card-container .title-box h2 {

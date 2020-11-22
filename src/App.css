@@ -1,30 +1,40 @@
 .App {
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .container {
   padding-top: 5%;
-  background-color: lightgrey;
+  background-color: #fce5cd30;
+}
+.MuiInput-root {
+  margin-right: 16px;
 }
 #search-input-box {
-  width: 250px;
+  width: 350px;
 }
 .list-container {
-  padding-top: 10%;
+  padding-top: 4%;
 }
 .list-container .wrapper {
   margin: 40px 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem 2rem;
+  gap: 5rem 2rem;
 }
 .card-container {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  min-height: 200px;
+  min-height: 216px;
 }
+
 .card-container .title-box {
   grid-row: 1;
   grid-column: 2/2;
+  padding: 1rem;
+  text-align: left;
+}
+.card-container .title-box h2 {
+  margin-top: 0;
 }
 .card-container .img-box {
   grid-row: 1;
@@ -36,4 +46,7 @@
   top: auto;
   margin-top: -16px;
   margin-left: 16px;
+}
+.card-container .title-box .small-desc {
+  font-size: 1rem;
 }

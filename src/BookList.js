@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Box from '@material-ui/core/Box';
-import { Card,  CardHeader } from '@material-ui/core';
+import { Card } from '@material-ui/core';
 
 class BookList extends Component {
     render() {
@@ -14,7 +14,11 @@ class BookList extends Component {
                     {this.props.data.map((i, idx) => {
                         return (
                             <Card key={idx} className="card-container" >
-                                <CardHeader className="title-box" title={i.volumeInfo.title} />
+                                <div className="title-box">
+                                    <h2>{i.volumeInfo.title}</h2>
+                                    <div className="small-desc">By: {i.volumeInfo.authors[0]}</div>
+                                    <div className="small-desc">Published by: {i.volumeInfo.publisher}</div>
+                                </div>
                                 <img alt="book thumbnail" className="img-box" src={i.volumeInfo.imageLinks.thumbnail}/>
                             </Card>
                         )

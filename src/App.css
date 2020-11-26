@@ -2,18 +2,15 @@ html {
   min-height: 100%;
   background-color: #fce5cd30;
 }
-
 body {
   min-height: 100vh;
 }
 .App {
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
 }
 .container {
   padding-top: 5%;
-  
 }
 .MuiInput-root {
   margin-right: 16px;
@@ -25,7 +22,7 @@ body {
   padding-top: 4%;
 }
 .list-container .wrapper {
-  margin: 40px 14%;
+  margin: 40px 10%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem 4rem;
@@ -41,6 +38,8 @@ body {
   grid-column: 2/2;
   padding: 1rem 2rem;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 .card-container .title-box h2 {
   margin-top: 0;
@@ -50,12 +49,42 @@ body {
   grid-column: 1/2;
   margin: 0 auto;
   box-shadow: 0px 8px 8px #000;
-
   position: absolute;
   top: auto;
   margin-top: -16px;
   margin-left: 16px;
+  max-width: 100%;
+  display: block;
+}
+.loading-p {
+  font-size: 40px;
+}
+.loading-p span:before{
+    animation: dots 1s linear infinite;
+    content: ''
+}
+@keyframes dots {
+  0%, 20%{
+    content: '.';
+  }
+  40%{
+    content: '..';
+  }
+  60%{
+    content: '...';
+  }
+  90%, 100%{
+    content: '';
+  }
 }
 .card-container .title-box .small-desc {
   font-size: 1rem;
+  margin-top: 0.4rem;
+}
+.card-container .title-box .small-desc.button-div {
+  display: flex;
+  flex: 1;
+}
+.card-container .title-box .small-desc.button-div button {
+  align-self: flex-end;
 }

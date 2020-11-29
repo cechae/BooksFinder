@@ -20,27 +20,32 @@ class App extends React.Component {
     if (!this.state.searchField.trim()) {
       // empty string, add a warning that says "Please input search words here. "
     }
-    this.setState({isAppMounted: false})
-    //fetch request will be sent when the search button is clicked
+    this.setState({isAppMounted: false});
     console.log("search field was " + this.state.searchField)
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchField}&key=${apiKey}`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({books: result.items, isAppMounted: true})
-      });
+    this.fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchField}&key=${apiKey}`);
+  }
+  async fetchBooks (url){
+    try {
+      let response = await fetch(url);
+      let data = await response.json();
+      this.setState({ books: data.items, isAppMounted: true })
+    } catch (e) {
+      console.log(e)
+    }
   }
   
   componentDidMount() {
     // Initial fetch request to fill up the placeholder book list.
     if (this.state.searchField === "placeholder") {
-      // run a default books search
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=books&key=${apiKey}`)
-      .then(response => response.json())
-      .then(result => {
-        this.setState({books: result.items, isAppMounted: true })
-      });
+      // fetch(`https://www.googleapis.com/books/v1/volumes?q=books&key=${apiKey}`)
+      // .then(response => response.json())
+      // .then(result => {
+      //   this.setState({books: result.items, isAppMounted: true })
+      // });
+      this.fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=books&key=${apiKey}`);
     } 
   }
+  
   render() {
     return (
       <div className="App">

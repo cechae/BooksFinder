@@ -4,10 +4,10 @@ import { Card } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 
 const BookList = (props) => {
-    let isResultUndefined = !props.data;
+    let isResultUndefined = !props.data; // caught error from Promise OR when no book's returned from the search term.
     return(
         <div className="list-container">
-            {!props.isMounted ?
+            {!props.isMounted ? // when unmounted (= waiting for data) display Loading...
                 <p className="loading-p">Loading<span></span></p>
                 :
                 <Box>

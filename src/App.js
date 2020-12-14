@@ -21,7 +21,6 @@ class App extends React.Component {
       // empty string, add a warning that says "Please input search words here. "
     }
     this.setState({isAppMounted: false});
-    console.log("search field was " + this.state.searchField)
     this.fetchBooks(`https://www.googleapis.com/books/v1/volumes?q=${this.state.searchField}&key=${apiKey}`);
   }
   async fetchBooks (url){
@@ -30,6 +29,8 @@ class App extends React.Component {
       let data = await response.json();
       this.setState({ books: data.items, isAppMounted: true })
     } catch (e) {
+      // API returns an error, just display the generic "Ooops no books found.." error page.
+      this.setState({ books: null, isAppMounted: true })
       console.log(e)
     }
   }

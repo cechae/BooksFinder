@@ -2,13 +2,14 @@
   "name": "vendingmachine",
   "version": "0.1.0",
   "private": true,
- 
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "axios": "^0.21.0",
+    "dotenv": "^3.0.0",
     "express": "^4.17.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.0.1",
     "react-twitter-auth": "0.0.13",
     "request": "^2.88.2"

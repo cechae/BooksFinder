@@ -5,6 +5,12 @@ html {
 body {
   min-height: 100vh;
 }
+a {
+  text-decoration: none;
+}
+.small-desc a {
+  display: contents;
+}
 .App {
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -62,6 +68,17 @@ body {
 .loading-p span:before{
     animation: dots 1s linear infinite;
     content: ''
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+.flex-right {
+  margin-left: 1rem;
+  text-align: left;
+
+  max-width: 500px;
+
 }
 @keyframes dots {
   0%, 20%{

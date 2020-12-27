@@ -30,7 +30,7 @@ export default class SearchBox extends Component {
                     placeholder={this.props.placeholder}
                     onChange={this.props.handleChange}
                 />
-                <Button id="search-button" onClick={()=>this.props.handleSearchClick()} variant="contained" color="secondary">Search</Button>
+                <Button id="search-button" onClick={()=>this.props.handleSearchClick()} variant="contained" color="primary">Search</Button>
             </div>
         )
     }

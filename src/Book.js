@@ -4,10 +4,8 @@ import React from 'react';
 
 function Book(props) {
     let bookInfo = null;
-    console.log(props.detail)
     if (props.detail) {
         bookInfo = props.detail.volumeInfo;
-        console.log(bookInfo)
     }
     return (
         bookInfo? 
@@ -20,7 +18,6 @@ function Book(props) {
                     <div className="title-box">
                         <h1>{bookInfo.title}</h1>
                         <p><b>By:</b> {bookInfo.authors ? bookInfo.authors.map((i, idx) => {
-                            console.log(idx)
                             if (idx === bookInfo.authors.length-1){
                                 return (`${i}`);
                             }

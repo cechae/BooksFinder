@@ -7,13 +7,12 @@ function Book(props) {
     console.log(props.detail)
     if (props.detail) {
         bookInfo = props.detail.volumeInfo;
-        //console.log(bookInfo)
-
+        console.log(bookInfo)
     }
     return (
         bookInfo? 
         (<div>
-            <div className="flex-container">
+            <div className="flex-container book">
                 <div className="flex-left">
                     <img alt="book thumbnail" className="img-box" src={bookInfo.imageLinks ? bookInfo.imageLinks.thumbnail : ""}/>
                 </div>

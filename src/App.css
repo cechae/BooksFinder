@@ -124,11 +124,15 @@ a {
   .card-container {
     grid-template-columns: 1fr 3fr;
   }
+  
 
 }
 @media(max-width: 550px) {
   .card-container {
     grid-template-columns: 1fr 2fr;
+  }
+  .flex-container.book {
+    flex-direction: column;
   }
 }
 @media(max-width: 420px) {
@@ -146,5 +150,5 @@ a {
   }
   .card-container .title-box {
     padding: 1rem;
-}
+  }
 }

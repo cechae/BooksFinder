@@ -2,7 +2,6 @@ import React from 'react';
 import Box from '@material-ui/core/Box';
 import { Card } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import Book from './Book';
 import {
     Link
   } from "react-router-dom";
@@ -18,7 +17,6 @@ const BookList = (props) => {
                     { !isResultUndefined ?
                     <div className="wrapper">
                         {props.data.map((i, idx) => {
-                            console.log(idx)
                             return (
                                 <Card key={idx} className="card-container" >
                                     <div className="title-box">

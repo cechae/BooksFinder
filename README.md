@@ -1,4 +1,4 @@
-BooksFinder is a web app that allows users to search for books by sending API request to <a href="https://developers.google.com/books">GoogleBooksAPI</a>
+BooksFinder is a web app that allows users to search for books by sending API requests to <a href="https://developers.google.com/books">GoogleBooksAPI</a>
 
 Features:
 1. Makes an API call to Google Books API and handle resolved, rejected and loading conditions
